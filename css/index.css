@@ -1,0 +1,91 @@
+                                                    
+.text {
+    color: aquamarine;
+}
+.text-2 {
+    color: blueviolet;
+    font-weight: 900;
+} 
+
+.btn {
+    border: 3px solid #172391;
+    background-color: cadetblue;
+    color: bisque;
+    font-size: 20px;
+    padding: 16px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.5s ease border-radius;
+
+}
+.btn:hover {
+    border-radius: 9999px;
+}
+
+.flex-container {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.item {
+    background-color: red;
+    height: 48px;
+    width: 48px;
+}
+
+.item-2 {
+    background-color: blue;
+    height: 32px;
+    width: 32px;
+}
+
+.item-3 {
+    background-color: purple;
+    height: 16px;
+    width: 16px;
+}
+
+.demo-inline {
+    background-color: red;
+    padding: 4px;
+    margin: 4px;
+}
+
+.demo-block {
+    background-color: purple;
+    padding: 8px;
+    margin: 8px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.demo-block-2 {
+    background-color: blue;
+    padding: 8px;
+    margin: 8px;
+    margin-top: 60px;
+}
+
+.demo-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 100px 200px;
+    gap: 16px;
+}
+
+.demo-grid__item:nth-child(1) {
+    background-color: red;
+}
+
+.demo-grid__item:nth-child(2) {
+    background-color: blue;
+}
+
+.demo-grid__item:nth-child(3) {
+    background-color: green;
+}
