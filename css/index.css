@@ -2,6 +2,7 @@
 .text {
     color: #c0c0c0;
 }
+
 .text-2 {
     color: red;
     font-weight: 900;
@@ -15,9 +16,16 @@
     padding: 16px 20px;
     border-radius: 15px;
     cursor: pointer;
-    transition: 0.5s ease border-radius;
+    transition: 0.5s ease;
+    transition-property: background-color, color, border-radius;
 
 }
+
+.btn--active {
+    background-color: red;
+    color: white;
+}
+
 .btn:hover {
     border-radius: 9999px;
 }
@@ -88,4 +96,11 @@
 
 .demo-grid__item:nth-child(3) {
     background-color: green;
+}
+
+@media (max-width: 800px) {
+    .demo-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 100px 200px 100px 200px;
+    }
 }
