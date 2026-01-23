@@ -1,12 +1,13 @@
 'use strict'
 
 const textEl = document.querySelector('#text-container');
-let buttons = document.querySelectorAll('.btn')
+let buttons = document.querySelectorAll('.btn');
+
 for (let i = 0; i < buttons.length; i++) {
     const button = buttons[i]; // 0, 1, 2, 3
     button.addEventListener("click", function() { 
         button.classList.toggle('btn--active');
-        let newText = button.dataset.toggleText;
+        let newText = button.dataset.toggleText; //
         button.dataset.toggleText = button.innerHTML;
         button.innerHTML = newText;
 
