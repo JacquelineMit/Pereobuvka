@@ -8,13 +8,22 @@
     <script src="./js/index.js" defer></script>
 </head>
 <body>
+    <header class="header">
+        Header
+    </header>
+
+    <div class="scroll-container">
+        <div class="scroll-container__header"></div>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad sapiente, autem officiis quo tenetur quibusdam, voluptas quos deleniti necessitatibus dolor assumenda! Neque consequatur deserunt numquam odio nihil laboriosam accusamus maiores enim quod dicta. Ex quo, nesciunt dolore asperiores voluptate veritatis. Amet dignissimos quibusdam est atque, eveniet neque animi dolorem nihil beatae quia! Consectetur explicabo eius atque quis quod, corrupti ullam in natus saepe suscipit iusto error! Assumenda vel placeat reprehenderit eius, at quisquam sint culpa et, quod temporibus dolore magnam voluptas ab repellat ex architecto ut obcaecati adipisci veritatis dolores quas labore deleniti. Laborum ipsum quasi inventore ex porro quidem labore tempore id quae esse fuga, quaerat voluptatum maxime nulla corporis ab consectetur modi repellendus, animi sapiente? Sequi, laborum est. Optio beatae voluptatem ab. Facere temporibus porro similique animi odit fuga quasi assumenda repudiandae autem illo provident iusto quos quidem enim laudantium quo, eaque ipsum pariatur ea totam quod. Earum facilis tempora aut? Non odit excepturi placeat omnis officia fugit. Praesentium eos neque quae labore aut doloribus veritatis possimus quas dolore sit ut velit dolor dignissimos suscipit harum esse, ex magnam culpa porro. Officia possimus nam quidem veniam quaerat dolor? Quae esse maxime exercitationem ut tenetur porro voluptatum, ad maiores rem aliquam corporis at est similique, quam optio dolorem iste aut. Totam dicta iste quas error, exercitationem saepe atque. Nesciunt, maxime? Blanditiis ad, odio, consectetur deserunt quos quaerat, sit similique aperiam nostrum dolore architecto aliquid veniam eos quidem illum nulla nemo expedita pariatur. Nobis ducimus aperiam quo eius laudantium veniam accusantium possimus! Ducimus, error voluptas repellat soluta incidunt dolore quos odio quibusdam modi provident minus labore harum magni aperiam laborum laboriosam, facere, officia eveniet obcaecati deserunt impedit rerum ad. Cum suscipit praesentium laborum atque. Possimus, temporibus eveniet. Hic, est maxime cupiditate illo unde eligendi. Omnis provident quod animi necessitatibus architecto tempore quis, unde in at mollitia itaque molestias possimus exercitationem delectus autem velit hic quaerat dolorum sapiente ipsam voluptatem quam. Repellat in dolorum atque repudiandae veniam nisi accusantium doloribus nihil nesciunt dolores et ullam blanditiis natus aliquid officia neque sunt consequatur laboriosam aut saepe fugiat dicta, asperiores voluptate. Placeat quisquam aliquam dolorem, fugiat ut ipsa officiis consequatur nostrum blanditiis ex odit, iusto quidem officia, tenetur animi fugit doloremque nesciunt ea. Doloribus rem numquam vel quae odit, aperiam accusantium natus ut sunt iusto aliquid nihil architecto omnis similique! Assumenda id facilis sint natus dolore? Quaerat beatae ducimus, modi commodi dolore odit.
+    </div>
+
     <p class="text">
         Дарова, МИР
     </p>
     <p class="text text-2">
         ЗДРАСТЕ
     </p>
-    <button class="btn" disabled data-toggle-text="Меня нажали!" data-text="sdfsdf">
+    <button id="myNutton" class="btn" disabled data-toggle-text="Меня нажали!" data-text="sdfsdf">
         Нажми меня
     </button>
 
@@ -91,6 +100,59 @@
         DArova, Mir
     </p>
 
+    <a class="hoverable-link" href="#">
+        Some text
+    </a>
 
+    <div class="before-after-exmple">
+        Текст по середине
+    </div>
+    
+    <p class="text_User">
+        Не в сети
+    </p>
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI0GH9NxaVe4RVmhhsY11WWhcsYA8go1hwyA&s" loading="lazy" alt="">
+
+    <div id="app">
+        {{ message }}
+        <button @click="onClick">click me!</button>
+        <ul>
+            <li v-for="item in news" :key="item">
+                {{ item }}
+            </li>
+        </ul>
+    </div>
+
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        function initApp() {
+            const { createApp, ref } = Vue
+            createApp({
+                setup() {
+                    const news = ref(['One', 'Tow', 'Three'])
+                    let counter = 0;
+                    const message = ref('Hello vue!')
+                    function onClick() {
+                        news.push(counter);
+                        counter++;
+                    }
+                    
+                    return {
+                        message,
+                        news,
+                        onClick
+                    }
+                }
+            }).mount('#app')
+        }
+
+        setTimeout(() => {
+           initApp() 
+        }, 2000);
+
+    </script>
+    
 </body>
 </html>
