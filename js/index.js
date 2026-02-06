@@ -125,3 +125,58 @@ function initButton(el) {
         el
     }
 }
+
+const num1 = 42;
+const num2 = 42;
+console.log({ num2, num1 })
+
+const obj1 = { a: 'foo', b: 'bar' };
+const obj2 = obj1
+
+const { a, b } = obj1 // Распаковываем значения
+console.log('--> Распакованные значения', a, b)
+console.log('--> \'Запаковываем значения\'', { obj1, obj2 })
+
+// obj1.a = foo
+// obj1.b = bar
+
+// obj2.a = foo
+// obj2.b = bar
+
+console.log('obj1.b', obj1.b)
+console.log('obj2.b', obj2.b)
+
+function getDog() {
+    fetch('https://dog.ceo/api/breeds/image/random').then(function (value) {
+        return value.json();
+    }).then(function(value){
+        /** @type {HTMLImageElement} */
+        const el = document.querySelector('img');
+        console.log(value.message)
+        el.setAttribute('src', value.message)
+    }).catch(function(error) {
+        console.error(error)
+    })
+}
+
+const myPromise = new Promise(function(resolve /** принять */, reject /** отклонить */) {
+    setTimeout(() => {
+        console.log('Я не сделаль')
+        reject()
+    }, 3000);
+})
+
+myPromise.then(/** --> */ function() {
+    console.log('Молодец')
+}).catch(function() {
+    console.log('Как так?')
+})
+
+
+getDog()
+// PascalCase
+// camelCase
+// dot.case
+// cabeb-case
+// snake_case
+// CONSTANT_CASE
