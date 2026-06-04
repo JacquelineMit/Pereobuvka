@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blank</title>
+  </head>
+  <body>
+    <div id="container">Hello, World!</div>
+
+    <script>
+      let food = 13;
+      //   const user = { name: "Alex" };
+      //   user.name = "Oleg";
+
+      //   console.log(user);
+
+      let array = [1, 2, 3];
+      for (let i = 0; i < array.length; i++) {
+        const item = array[i];
+        console.log(i, item);
+      }
+
+      array.forEach(function (i) {
+        console.log(i);
+      });
+
+      const el = document.querySelector("#container");
+
+      function sayHello(event) {
+        // TODO something
+        console.log("Hello", this);
+      }
+
+      // Стрелочная функция
+      const sayAtata = () => console.log("Atata", this);
+
+      el.addEventListener("click", sayHello);
+      el.addEventListener("click", sayAtata);
+
+      const obj1 = {
+        foo: 42,
+        bar() {
+          console.log("obj1", this.foo);
+        },
+      };
+
+      obj1.bar();
+
+      const obj2 = {
+        foo: 43,
+        bar: () => {
+          console.log("obj2", this.foo);
+        },
+      };
+
+      // у стрелочной нет контекста, берется из окружения
+      obj2.bar();
+
+      let ss = obj1.bar;
+      ss();
+
+      let anotherObj = { foo: "Hi!" };
+      obj1.bar.call(anotherObj, 1, 2, 3);
+      obj1.bar.call({ foo: "Hello" });
+
+      let myBar = obj1.bar.bind(anotherObj);
+      console.log(myBar, obj1.bar);
+      console.log(obj1.bar === obj1.bar);
+      console.log(myBar === obj1.bar);
+
+      myBar();
+
+      const obj3 = {
+        foo: 44,
+        bar() {
+          console.log("obj3", this.foo); // -> 44
+          myBar(); // -> Hi!
+        },
+      };
+
+      obj3.bar();
+
+      function User(name, age) {
+        this.name = name;
+        this.age = age;
+
+        const print = () => {
+          console.log(`Name is ${this.name}, age is ${this.age}`);
+        };
+
+        return {
+          print,
+        };
+      }
+
+      class Car {
+        constructor(model, number) {
+          this.model = model;
+          this.number = number;
+        }
+
+        print() {
+          console.log(`Model is ${this.model}, number is ${this.number}`);
+        }
+      }
+
+      class AnotherCar extends Car {
+        ping() {
+          console.log(`Ping ${this.model}`);
+        }
+      }
+
+      let user__class = new User("Oleg", 3000);
+      user__class.print();
+      let card__class = new AnotherCar("Oleg", 3000);
+      card__class.print();
+      card__class.ping();
+    </script>
+  </body>
+</html>
