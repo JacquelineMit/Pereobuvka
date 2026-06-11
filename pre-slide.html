@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" / />
+        <title>Document</title>
+
+        <style>
+            .slider__item {
+                display: none;
+            }
+
+            .slider__item--active {
+                display: block;
+            } 
+        </style>
+    </head>
+    <body>
+        <div class="slider">
+            <div class="slider__items">
+                <div class="slider__item slider__item--active">Slide 1</div>
+                <div class="slider__item">Slide 2</div>
+                <div class="slider__item">Slide 3</div>
+            </div>
+
+            <div class="slider__bullets">
+                <button class="slider__bullet">1</button>
+                <button class="slider__bullet">2</button>
+                <button class="slider__bullet">3</button>
+            </div>
+        </div>
+  </body>
+
+  <script>
+    const slides = document.querySelectorAll(".slider__item");
+    const bullets = document.querySelectorAll(".slider__bullet");
+    for (let index = 0; index < bullets.length; index++) {
+        const element = bullets[index];
+        element.addEventListener("click", function () {
+            slides[index].classList.add("slider__item--active");
+        });
+    }
+    
+  </script>
+</html>
