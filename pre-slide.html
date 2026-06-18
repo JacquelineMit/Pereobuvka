@@ -13,6 +13,11 @@
             .slider__item--active {
                 display: block;
             } 
+
+            .slider__bullet--active {
+                background-color: red;
+                color: white;
+            }
         </style>
     </head>
     <body>
@@ -24,7 +29,7 @@
             </div>
 
             <div class="slider__bullets">
-                <button class="slider__bullet">1</button>
+                <button class="slider__bullet slider__bullet--active">1</button>
                 <button class="slider__bullet">2</button>
                 <button class="slider__bullet">3</button>
             </div>
@@ -37,7 +42,12 @@
     for (let index = 0; index < bullets.length; index++) {
         const element = bullets[index];
         element.addEventListener("click", function () {
+            for (let index = 0; index < bullets.length; index++) {
+                slides[index].classList.remove("slider__item--active")
+                bullets[index].classList.remove("slider__bullet--active")
+            }
             slides[index].classList.add("slider__item--active");
+            bullets[index].classList.add("slider__bullet--active");
         });
     }
     
